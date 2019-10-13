@@ -28,10 +28,11 @@ def down_video(video_list, title, start_url, page):
     print('[正在下载P{}段视频,请稍等...]:'.format(page) + title)
     for video_url in video_list:
         print(video_url)
-        print(r'{}-{}.mp4'.format(title, num))
+        fileName = r'{}p-{}-{}.mp4'.format(page, title, num)
+        print(fileName)
         manifestFile = open('manifestFile.txt','ab')
         manifestFile.write(bytes(video_url + '\r\n','utf-8'))
-        manifestFile.write(bytes(' out=download/' + r'{}-{}.mp4'.format(title, num) + '\r\n','utf-8'))
+        manifestFile.write(bytes(' out=download/' + fileName + '\r\n','utf-8'))
         manifestFile.write(bytes(' header=User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.93 Safari/537.36 Vivaldi/2.8.1664.40\r\n','utf-8'))
         manifestFile.write(bytes(' header=Accept: */*\r\n','utf-8'))
         manifestFile.write(bytes(' header=Accept-Language: en-US,en;q=0.5\r\n','utf-8'))
