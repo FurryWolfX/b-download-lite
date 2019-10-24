@@ -47,7 +47,7 @@ def down_video(video_list, title, start_url, page):
     print('[正在下载P{}段视频,请稍等...]:'.format(page) + title)
     for video_url in video_list:
         print(video_url)
-        fileName = r'p{}p-{}-{}.mp4'.format(page, title, num)
+        fileName = r'p{}-{}-{}.mp4'.format(page, title, num)
         print(fileName)
         manifestFile = open('manifestFile.txt','ab')
         manifestFile.write(bytes(video_url + '\r\n','utf-8'))
