@@ -35,8 +35,8 @@ def down_video(video_list, title, start_url, page):
         manifestFile.write(bytes(' out=download/' + fileName + '\r\n','utf-8'))
         manifestFile.write(bytes(' header=User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.93 Safari/537.36 Vivaldi/2.8.1664.40\r\n','utf-8'))
         manifestFile.write(bytes(' header=Accept: */*\r\n','utf-8'))
-        manifestFile.write(bytes(' header=Accept-Language: en-US,en;q=0.5\r\n','utf-8'))
-        manifestFile.write(bytes(' header=Accept-Encoding: gzip, deflate, br\r\n','utf-8'))
+        # manifestFile.write(bytes(' header=Accept-Language: en-US,en;q=0.5\r\n','utf-8'))
+        # manifestFile.write(bytes(' header=Accept-Encoding: gzip, deflate, br\r\n','utf-8'))
         manifestFile.write(bytes(' header=Range: bytes=0-\r\n','utf-8'))
         manifestFile.write(bytes(' header=Origin: https://www.bilibili.com\r\n','utf-8'))
         manifestFile.write(bytes(' header=Connection: keep-alive\r\n','utf-8'))
@@ -93,3 +93,4 @@ if __name__ == '__main__':
 
 # 分P视频下载测试: https://www.bilibili.com/video/av19516333/
 # 下载总耗时14.21秒,约0.23分钟
+# aria2c --download-result=full --min-split-size=5M -s 20 -j 10 -i manifestFile.txt
